@@ -1,7 +1,13 @@
+import logoImage from '../../src/images/Logo.svg';
+
 function Header() {
     return (
         <header>
-            <img src='./../../public/Logo.svg' />
+            <meta name="description" content="Little Lemon"/>
+            <meta name="og:title" content="Little Lemon"/>
+            <meta name="og:description" content="Little Lemon"/>
+            <meta name="og:image" content=""/>
+            <img src={logoImage} alt="Little Lemon" height="" />
 
             Header
 
