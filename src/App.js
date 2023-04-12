@@ -1,18 +1,28 @@
-import './App.css';
-import Header from './components/Header/Header';
-import Nav from './components/Nav/Nav';
-import Main from './components/Main/Main';
-import Footer from './components/Footer/Footer';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  //Routes,
+  //Route,
+  useRoutes,
+} from "react-router-dom";
+import HomePage from './components/HomePage/HomePage';
+import Reservations from "./routes/Reservations";
 
-function App() {
+const App = () => {
+  const routes = useRoutes([
+    { path: "/", element: <HomePage /> },
+    { path: "/reservations", element: <Reservations /> },
+    // ...
+  ]);
+  return routes;
+};
+
+const AppWrapper = () => {
   return (
-    <>
-      <Header />
-      <Nav />
-      <Main />
-      <Footer />
-    </>
+    <Router>
+      <App />
+    </Router>
   );
-}
+};
 
-export default App;
+export default AppWrapper;
