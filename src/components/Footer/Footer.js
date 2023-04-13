@@ -1,8 +1,10 @@
+import './Footer.css';
+
 function Footer() {
     return (
         <footer>
             <div className="copyright">
-                <p>Made with love by Myself</p>
+                <p>&copy;Copyright Little Lemon</p>
             </div>
         </footer>
     );
