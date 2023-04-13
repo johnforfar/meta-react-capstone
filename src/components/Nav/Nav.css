@@ -1,0 +1,40 @@
+nav {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+li {
+    padding: 10px;
+
+}
+a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    transition: color 0.4s;
+}
+
+a:hover{
+    color: #F4CE14;
+}
+
+@media screen and (max-width: 480px) {
+    nav{
+        display: block;
+    }
+
+    ul{
+        padding-left: 1.5rem;
+    }
+
+    li{
+        padding: 5px;
+    }
+  }
