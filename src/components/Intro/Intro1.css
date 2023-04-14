@@ -2,10 +2,12 @@
     background-color: #495e57;
     display: flex;
     justify-content: space-evenly;
+    overflow: hidden;
   }
   
   .intro-container {
     max-width: 500px;
+    margin-top: 40px;
   }
   
   .intro-container h1 {
@@ -35,11 +37,15 @@
     background-color: #f4cf14cd;
   }
   
+  .image-container {
+    margin-bottom: 60px;
+  }
+
   .table-image {
     width: 500px;
     height: auto;
     position: relative;
-    top: 60px;
+    top: 40px;
     border-radius: 20px;
   }
   

@@ -1,0 +1,76 @@
+.week-special {
+    /* margin-top: 100px;*/
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .week-special h2 {
+    font-size: 50px;
+  }
+  
+  .specials img {
+    width: 300px;
+    height: 200px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+  }
+  
+  .specials {
+    background-color: #edefee;
+    max-width: 300px;
+    border-radius: 20px;
+  }
+  
+  .specials-container {
+    display: flex;
+    gap: 60px;
+  }
+  
+  .name-price {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
+    font-size: 18px;
+  }
+  
+  .price {
+    color: #ee9972;
+  }
+  
+  .name-price+p {
+    margin: 0 20px 16px;
+  }
+
+  .online-menu-div{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    position:relative;
+    top:-20px;
+    top: -6em;
+    padding-right: 50px;
+  }
+.online-menu-button {
+    border: none;
+    padding: 12px;
+    border-radius: 20px;
+    font-family: 'Markazi Text', sans-serif;
+    font-size: 24px;
+    background-color: #f4ce14;
+    float:right;
+    align-self: end;
+}
+
+.online-menu-button:hover {
+    cursor: pointer;
+    background-color: #f4cf14cd;
+  }
+
+  @media only screen and (max-width: 800px) {
+    .specials-container {
+      display: block;
+    }
+  }
+
