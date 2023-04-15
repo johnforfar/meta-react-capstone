@@ -20,14 +20,12 @@
   .intro-container p {
     color: #fff;
     font-size: 24px;
-    font-family: 'Karla', sans-serif;
   }
   
   .intro-container button {
     border: none;
     padding: 12px;
     border-radius: 20px;
-    font-family: 'Markazi Text', sans-serif;
     font-size: 24px;
     background-color: #f4ce14;
   }

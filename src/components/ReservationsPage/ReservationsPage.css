@@ -1,0 +1,16 @@
+.res-intro-text {
+background-color: #f4ce14;
+padding: 40px;
+}
+
+.res-form-wrapper {
+    padding: 40px;
+}
+
+.res-form-text {margin-bottom: 40px;}
+
+.res-form {
+    text-align: center;
+    width: 500px;
+    display: block;
+}
