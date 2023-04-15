@@ -1,29 +1,34 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-function ReservationForm(props) {
-  const [fName, setFName] = useState("");
-  const [lName, setLName] = useState("");
-  const [email, setEmail] = useState("");
-  const [tel, setTel] = useState("");
-  const [people, setPeople] = useState(1);
-  const [date, setDate] = useState("");
-  const [occasion, setOccasion] = useState("");
-  const [preferences, setPreferences] = useState("");
-  const [comments, setComments] = useState("");
 
-  const [finalTime, setFinalTime] = useState(
-    props.availableTimes.map((times) => <option>{times}</option>)
-  );
+function ReservationForm(props) {
+
+const [reservationData, setReservationData] = useState({
+  fName: "",
+  lName: "",
+  email: "",
+  tel: "",
+  people: 1,
+  date: "",
+  occasion: "",
+  preferences: "",
+  comments: "",
+  finalTime: props.availableTimes.map((times) => (
+    <option key={times}>{times}</option>
+  )),
+});
 
   function handleDateChange(e) {
-    setDate(e.target.value);
-
-    var stringify = e.target.value;
-    const date = new Date(stringify);
-
+    const newDate = e.target.value;
+    setReservationData({
+      ...reservationData,
+      date: newDate,
+      finalTime: props.availableTimes.map((times) => (
+        <option key={times}>{times}</option>
+      )),
+    });
+    const date = new Date(newDate);
     props.updateTimes(date);
-
-    setFinalTime(props.availableTimes.map((times) => <option>{times}</option>));
   }
 
   return (
@@ -37,9 +42,9 @@ function ReservationForm(props) {
           required
           minLength={2}
           maxLength={50}
-          value={fName}
-          onChange={(e) => setFName(e.target.value)}
-        ></input>
+          value={reservationData.fName}
+          onChange={(e) => setReservationData({ ...reservationData, fName: e.target.value })}
+          ></input>
       </div>
 
       <div>
@@ -50,8 +55,8 @@ function ReservationForm(props) {
           placeholder="Last Name"
           minLength={2}
           maxLength={50}
-          value={lName}
-          onChange={(e) => setLName(e.target.value)}
+          value={reservationData.lName}
+          onChange={(e) => setReservationData({ ...reservationData, lName: e.target.value })}
         ></input>
       </div>
 
@@ -61,11 +66,11 @@ function ReservationForm(props) {
           type="email"
           id="email"
           placeholder="Email"
-          value={email}
+          value={reservationData.email}
           required
           minLength={4}
           maxLength={200}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={(e) => setReservationData({ ...reservationData, email: e.target.value })}
         ></input>
       </div>
 
@@ -75,11 +80,11 @@ function ReservationForm(props) {
           type="tel"
           id="phonenum"
           placeholder="(xxx)-xxx-xxxx"
-          value={tel}
+          value={reservationData.tel}
           required
           minLength={10}
           maxLength={25}
-          onChange={(e) => setTel(e.target.value)}
+          onChange={(e) => setReservationData({ ...reservationData, tel: e.target.value })}
         ></input>
       </div>
 
@@ -89,11 +94,11 @@ function ReservationForm(props) {
           type="number"
           id="people"
           placeholder="Number of People"
-          value={people}
+          value={reservationData.people}
           required
           min={1}
           max={100}
-          onChange={(e) => setPeople(e.target.value)}
+          onChange={(e) => setReservationData({ ...reservationData, people: e.target.value })}
         ></input>
       </div>
 
@@ -103,7 +108,7 @@ function ReservationForm(props) {
           type="date"
           id="date"
           required
-          value={date}
+          value={reservationData.date}
           onChange={handleDateChange}
         ></input>
       </div>
@@ -111,7 +116,7 @@ function ReservationForm(props) {
       <div>
         <label htmlFor="time">Select Time</label> <br></br>
         <select id="time" required>
-          {finalTime}
+          {reservationData.finalTime}
         </select>
       </div>
 
@@ -119,8 +124,8 @@ function ReservationForm(props) {
         <label htmlFor="occasion">Occasion</label> <br></br>
         <select
           id="occasion"
-          value={occasion}
-          onChange={(e) => setOccasion(e.target.value)}
+          value={reservationData.occasion}
+          onChange={(e) => setReservationData({ ...reservationData, occasion: e.target.value })}
         >
           <option>None</option>
           <option>Birthday</option>
@@ -134,8 +139,8 @@ function ReservationForm(props) {
         <label htmlFor="preferences">Seating preferences</label> <br></br>
         <select
           id="preferences"
-          value={preferences}
-          onChange={(e) => setPreferences(e.target.value)}
+          value={reservationData.preferences}
+          onChange={(e) => setReservationData({ ...reservationData, preferences: e.target.value })}
         >
           <option>None</option>
           <option>Indoors</option>
@@ -151,8 +156,8 @@ function ReservationForm(props) {
           rows={8}
           cols={50}
           placeholder="Additional Comments"
-          value={comments}
-          onChange={(e) => setComments(e.target.value)}
+          value={reservationData.comments}
+          onChange={(e) => setReservationData({ ...reservationData, comments: e.target.value })}
         ></textarea>
       </div>
 
